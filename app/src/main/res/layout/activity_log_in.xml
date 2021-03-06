@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1B1A1A"
+    android:orientation="vertical"
+    tools:context=".LogIn">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="198dp"
+        android:background="@drawable/logo" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="349dp"
+        android:layout_height="256dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="50dp"
+        app:cardBackgroundColor="#ffff">
+
+        <TextView
+            android:layout_width="105dp"
+            android:layout_height="43dp"
+            android:layout_margin="10dp"
+            android:text="@string/log_inn"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:fontFamily="@font/amita_bold"/>
+
+    <EditText
+        android:id="@+id/Email"
+        android:layout_width="303dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="60dp"
+        android:hint="@string/email" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="303dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="140dp"
+        android:password="true"
+        android:hint="@string/password" />
+    </androidx.cardview.widget.CardView>
+    <Button
+        android:onClick="clickedLogIn"
+        android:layout_width="136dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="130dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/log_in"
+        android:textSize="18sp" />
+    <Button
+        android:onClick="toSignUp"
+        android:layout_width="136dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="130dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/create_account"
+        android:textSize="18sp" />
+
+</LinearLayout>

@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".FinishOrder">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="339dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="30dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp"
+                android:text="@string/finish_you_r_order"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/amita_bold"
+                android:layout_marginStart="10dp" />
+
+            <ImageView
+                android:layout_width="275dp"
+                android:layout_height="175dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="40dp"
+                android:background="@drawable/black_box_classic"
+                android:layout_marginLeft="40dp" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="339dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="30dp">
+
+            <TableLayout
+                android:id="@+id/orderTable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp">
+                <TableRow>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:text="@string/you_r_order"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:text="@string/amount"/>
+                </TableRow>
+
+                <TableRow
+                    android:visibility="gone"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="50dp"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                         />
+                        <TextView
+                            android:layout_marginTop="40dp"
+                            android:layout_marginLeft="40dp"
+                            android:layout_width="30dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp" />
+                </TableRow>
+
+                <TableRow
+                    android:visibility="gone">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="50dp"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        />
+                        <TextView
+                            android:layout_marginTop="40dp"
+                            android:layout_marginLeft="40dp"
+                            android:layout_width="30dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp" />
+
+                </TableRow>
+                <TableRow
+                    android:visibility="gone"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="50dp"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        />
+                    <TextView
+                        android:layout_marginTop="40dp"
+                        android:layout_marginLeft="40dp"
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="40dp" />
+                </TableRow>
+                <TableRow
+                    android:visibility="gone"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="50dp"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        />
+                    <TextView
+                        android:layout_marginTop="40dp"
+                        android:layout_marginLeft="40dp"
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="40dp" />
+                </TableRow>
+                <TableRow
+                    android:visibility="gone"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="50dp"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        />
+                    <TextView
+                        android:layout_marginTop="40dp"
+                        android:layout_marginLeft="40dp"
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="40dp" />
+                </TableRow>
+                <TableRow
+                    android:visibility="gone"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="50dp"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        />
+                    <TextView
+                        android:layout_marginTop="40dp"
+                        android:layout_marginLeft="40dp"
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="40dp" />
+                </TableRow>
+
+            </TableLayout>
+
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="339dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="30dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/fill_your_information"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_marginLeft="80dp" />
+
+            <EditText
+                android:id="@+id/firstName"
+                android:layout_width="138dp"
+                android:layout_height="62dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginStart="10dp"
+                android:hint="@string/first_name"
+                android:layout_marginLeft="20dp" />
+            <EditText
+                android:id="@+id/lastName"
+                android:layout_width="138dp"
+                android:layout_height="62dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginStart="180dp"
+                android:hint="@string/last_name"
+                android:layout_marginLeft="20dp" />
+            <EditText
+                android:id="@+id/phoneNumber"
+                android:layout_width="138dp"
+                android:layout_height="62dp"
+                android:layout_marginTop="110dp"
+                android:layout_marginStart="10dp"
+                android:hint="@string/phone_number"
+                android:layout_marginLeft="20dp" />
+            <EditText
+                android:id="@+id/city"
+                android:layout_width="138dp"
+                android:layout_height="62dp"
+                android:layout_marginTop="180dp"
+                android:layout_marginStart="10dp"
+                android:hint="@string/city"
+                android:layout_marginLeft="20dp" />
+
+            <ImageView
+                android:layout_width="167dp"
+                android:layout_height="157dp"
+                android:layout_marginStart="170dp"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="115dp"
+                android:background="@drawable/sushi_take_away_package" />
+        </androidx.cardview.widget.CardView>
+        <Button
+            android:onClick="saveToFireBase"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="100dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="@string/send_your_order"
+            android:layout_marginLeft="100dp" />
+
+    </LinearLayout>
+
+</ScrollView>
