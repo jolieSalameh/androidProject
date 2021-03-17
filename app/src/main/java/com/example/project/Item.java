@@ -11,11 +11,13 @@ public class Item implements Serializable, Parcelable {
     public ImageView image;
     public String nameItem;
     public int amount;
+    public int price;
 
-    public Item(ImageView image,String name) {
+    public Item(ImageView image,String name,int price) {
         this.image = image;
         this.nameItem=name;
         this.amount=1;
+        this.price=price;
     }
 
     protected Item(Parcel in) {

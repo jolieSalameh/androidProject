@@ -71,21 +71,22 @@ public class SignUp extends AppCompatActivity {
 
     }
     public int checkInput(String fName ,String lName,String email,String password){
-        if(fName==null && lName==null && email==null && password==null){
+        if(fName.equals("")|| lName.equals("") || email.equals("") || password.equals("")){
             Toast.makeText(this,
-                    "You did not enter your information", Toast.LENGTH_LONG).show();
+                    "You must enter your information", Toast.LENGTH_LONG).show();
             return 0;
         }
-        if(email==null && fName!=null && lName!=null && password!=null){
-            Toast.makeText(this,
-                    "You did not enter your email address", Toast.LENGTH_LONG).show();
-            return 0;
+        if(!(email.isEmpty() && fName.isEmpty() && lName.isEmpty() && password.isEmpty())){
+            if(email.contains("@")&& (email.contains(".com") || email.contains(".co.il")) ) {
+                return 1;
+            }
+                else{
+                    Toast.makeText(this,
+                            "Email address is't valid", Toast.LENGTH_LONG).show();
+                    return 0;
+            }
         }
-        if(password==null && fName!=null && lName!=null && email!=null){
-            Toast.makeText(this,
-                    "You did not enter your password", Toast.LENGTH_LONG).show();
-            return 0;
-        }
+
         return 1;
     }
     public void toLogIn(View v){

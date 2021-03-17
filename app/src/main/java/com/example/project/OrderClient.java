@@ -12,9 +12,10 @@ public class OrderClient {
     public ArrayList<String>itemsName = new ArrayList<>();
     public ArrayList<String>amount = new ArrayList<>();
     public boolean isReady;
+    public String price;
     public Date date;
 
-    public OrderClient(String firstName, String lastName, String phoneNumber, String city, String id, ArrayList<String> itemsName, ArrayList<String> amount, Date date) {
+    public OrderClient(String firstName, String lastName, String phoneNumber, String city, String id, ArrayList<String> itemsName, ArrayList<String> amount,String price ,Date date) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
@@ -24,6 +25,7 @@ public class OrderClient {
             this.itemsName.add(i,itemsName.get(i));
             this.amount.add(i,amount.get(i));
         }
+        this.price=price;
         this.isReady=false;
         this.date = date;
     }

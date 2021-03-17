@@ -53,7 +53,8 @@ public class ClientOrder extends AppCompatActivity {
                         ArrayList<String> itemsName = (ArrayList<String>) document.get("itemsName");
                         ArrayList<String> itemsAmount = (ArrayList<String>) document.get("amount");
                         boolean status = document.getBoolean("isReady");
-                        userOrder = new UserOrder(itemsName,itemsAmount,status);
+                        String price = document.getString("price");
+                        userOrder = new UserOrder(itemsName,itemsAmount,price,status);
                         Log.d("TAG", "DocumentSnapshot data: " + document.getData());
                         putData();
                     } else {
@@ -77,6 +78,10 @@ public class ClientOrder extends AppCompatActivity {
             txtName.setText(userOrder.itemsName.get(i));
             amount.setText(userOrder.amount.get(i));
         }
+        TextView textP= findViewById(R.id.priceTxt);
+        String price = userOrder.price;
+        price+="$";
+        textP.setText(price);
         putStatus();
 
     }

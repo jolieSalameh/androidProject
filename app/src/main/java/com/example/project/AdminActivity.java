@@ -15,7 +15,7 @@ public class AdminActivity extends AppCompatActivity {
         setContentView(R.layout.activity_admin);
     }
     public void startMenu(View v){
-        Intent intent = new Intent(this,menu.class);
+        Intent intent = new Intent(this,AddToMenu.class);
         startActivity(intent);
     }
     public void toTheOrders(View v){

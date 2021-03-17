@@ -20,7 +20,6 @@
     <string name="phone_number">Phone Number</string>
     <string name="city">City</string>
     <string name="send_your_order">Send your order</string>
-    <string name="save">Save</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="sign_in">Sign in</string>
@@ -41,4 +40,8 @@
     <string name="ready">Ready</string>
     <string name="delete">Delete</string>
     <string name="not_ready">Not Ready</string>
+    <string name="add_to_menu">Add to menu</string>
+    <string name="item_name">Item Name</string>
+    <string name="price">Price</string>
+    <string name="save">Save</string>
 </resources>

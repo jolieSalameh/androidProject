@@ -25,8 +25,8 @@ import java.util.ArrayList;
 
 public class menu extends AppCompatActivity {
     ArrayList<Item> itemsOrder = new ArrayList<Item>(); // this array to save the items roll that has been selected
-    int indexI=0;
-    String userId;
+    int indexI=0,totalPrice=0;
+    String userId,priceStr;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,12 +38,19 @@ public class menu extends AppCompatActivity {
     public void onClickV(View v){
         CardView card = (CardView) v;
         TextView text = (TextView) card.getChildAt(1);
-       // card.setBackgroundColor(Color.parseColor("#5E0C0C"));
+        TextView textPrice = (TextView) card.getChildAt(2);
         text.setBackgroundColor(Color.parseColor("#5E0C0C"));
         ImageView image = (ImageView) card.getChildAt(0);
         String itemName = text.getText().toString();
-        Drawable draw = image.getBackground();
-        Item item = new Item(image,itemName);
+        String priceStr = textPrice.getText().toString();
+        String pr="";
+        for(int i=0;i<priceStr.length();i++){
+            if(priceStr.charAt(i)!='$')
+                pr+=priceStr.charAt(i);
+        }
+        int price = Integer.parseInt(pr);
+        totalPrice+=price;
+        Item item = new Item(image,itemName,price);
         itemsOrder.add(indexI,item);
         indexI++;
 
@@ -78,6 +85,10 @@ public class menu extends AppCompatActivity {
             if(item.nameItem.equals(text.getText().toString())){
                 int i=itemsOrder.indexOf(item);
                 itemsOrder.get(i).amount=amount;
+                int price = itemsOrder.get(i).price;
+                totalPrice+=price;
+                price+=price;
+                itemsOrder.get(i).price=price;
                 break;
             }
         }
@@ -95,9 +106,57 @@ public class menu extends AppCompatActivity {
             if(item.nameItem.equals(text.getText().toString())){
                 int i=itemsOrder.indexOf(item);
                 itemsOrder.get(i).amount=amount;
+                int price = itemsOrder.get(i).price;
+                totalPrice-=price;
+
                 break;
             }
         }
+    }
+    public void remove(View v){
+        TextView delT = (TextView) v;
+        CardView card = (CardView) delT.getParent();
+        TableRow row = (TableRow) card.getParent();
+        TextView text = (TextView) row.getChildAt(1);
+        for(Item item : itemsOrder){
+            if(item.nameItem.equals(text.getText().toString())){
+                int i=itemsOrder.indexOf(item);
+                int price = itemsOrder.get(i).price;
+                totalPrice-=price;
+                itemsOrder.remove(i);
+                break;
+            }
+        }
+        int i=0;
+        TableLayout table = findViewById(R.id.orderTable);
+        while(i<itemsOrder.size()+1){
+            TableRow rowT = (TableRow) table.getChildAt(i);
+            rowT.setVisibility(View.GONE);
+            ImageView image = (ImageView) rowT.getChildAt(0);
+            TextView textI = (TextView) rowT.getChildAt(1);
+            CardView cardT = (CardView) rowT.getChildAt(2);
+            cardT.setVisibility(View.GONE);
+            image.setBackground(null);
+            textI.setText("");
+            i++;
+        }
+        resetTable();
+    }
+    public void resetTable(){
+        int i=0;
+        TableLayout table = findViewById(R.id.orderTable);
+        while(i<itemsOrder.size()){
+            TableRow row = (TableRow) table.getChildAt(i);
+            row.setVisibility(View.VISIBLE);
+            ImageView image = (ImageView) row.getChildAt(0);
+            TextView text = (TextView) row.getChildAt(1);
+            CardView cardT = (CardView) row.getChildAt(2);
+            cardT.setVisibility(View.VISIBLE);
+            image.setBackground(itemsOrder.get(i).image.getBackground());
+            text.setText(itemsOrder.get(i).nameItem);
+            i++;
+        }
+
     }
     public void visibilityFunction(int f){
         GridLayout grid = findViewById(R.id.gridOrder);
@@ -129,6 +188,8 @@ public class menu extends AppCompatActivity {
         Intent intent = new Intent(menu.this,FinishOrder.class);
         intent.putExtra("item",itemsOrder);
         intent.putExtra("userId",userId);
+        String total =String.valueOf(totalPrice);
+        intent.putExtra("price",total);
         startActivity(intent);
     }
 }

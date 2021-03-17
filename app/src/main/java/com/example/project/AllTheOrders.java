@@ -204,7 +204,7 @@ public class AllTheOrders extends AppCompatActivity {
 
     }
     public void goBackA(View v){
-        Intent intent = new Intent(this,MainActivity.class);
+        Intent intent = new Intent(this,AdminActivity.class);
         startActivity(intent);
     }
 }

@@ -33,7 +33,8 @@ public class FinishOrder extends AppCompatActivity {
     ArrayList<String>itemsName = new ArrayList<>();
     ArrayList<String>itemsAmount = new ArrayList<>();
     EditText fName,lName,phoneNum,city;
-    String userId;
+    TextView priceTxt;
+    String userId,price;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +42,8 @@ public class FinishOrder extends AppCompatActivity {
         //get the array that been saved and sent from the menu activity
         itemsArray = (ArrayList<Item>) getIntent().getSerializableExtra("item");
         userId = getIntent().getStringExtra("userId");
-        Log.i("userID",userId);
+        price = getIntent().getStringExtra("price");
+        Log.i("finishOrder","price: "+price);
         TableLayout table = findViewById(R.id.orderTable);
         int i=0;
         //puts the order from the array on the table
@@ -54,6 +56,9 @@ public class FinishOrder extends AppCompatActivity {
             amount.setText(String.valueOf(itemsArray.get(i).amount));
             i++;
         }
+        priceTxt = findViewById(R.id.priceTxt);
+        String pr = price+"$";
+        priceTxt.setText(pr);
     }
     public void saveToFireBase(View v){
         fName = findViewById(R.id.firstName);
@@ -72,7 +77,7 @@ public class FinishOrder extends AppCompatActivity {
             FirebaseFirestore db = FirebaseFirestore.getInstance();  // fireStore instance
             finalOrder();
             Date date = Calendar.getInstance().getTime(); // take the current date
-            OrderClient orderClient = new OrderClient(firstName,lastName,phoneNumber,cityS,userId,itemsName,itemsAmount,date);
+            OrderClient orderClient = new OrderClient(firstName,lastName,phoneNumber,cityS,userId,itemsName,itemsAmount,price,date);
             // save to fireStore
             db.collection("Orders").document(userId).set(orderClient)  //this will save to the Orders collection
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -80,7 +85,7 @@ public class FinishOrder extends AppCompatActivity {
                         public void onSuccess(Void aVoid) {
                             FirebaseFirestore dbu = FirebaseFirestore.getInstance();
                             //will be saved in the UsersOrder collection
-                            dbu.collection("UsersOrder").document(userId).set(new UserOrder(userId,itemsName,itemsAmount))
+                            dbu.collection("UsersOrder").document(userId).set(new UserOrder(userId,itemsName,itemsAmount,price))
                                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void aVoid) {
@@ -104,21 +109,19 @@ public class FinishOrder extends AppCompatActivity {
         }
     }
     public int checkInput(String firstN,String lasN,String phoneN,String city){
-        if(firstN==null && lasN==null && phoneN==null && city==null) {
+        if(firstN.equals("") || lasN.equals("") || phoneN.equals("")|| city.equals("")) {
             Toast.makeText(this,
-                    "You did not enter your information", Toast.LENGTH_LONG).show();
+                    "You must enter your information", Toast.LENGTH_LONG).show();
             return 0;
         }
         assert phoneN != null;
-        if(phoneN.isEmpty() && (!firstN.isEmpty() && !lasN.isEmpty() && !city.isEmpty()) ){
-            Toast.makeText(this,
-                    "You did not enter your phone number", Toast.LENGTH_LONG).show();
-            return 0;
-        }
-        if(city.isEmpty() && (!firstN.isEmpty() && !lasN.isEmpty() && !phoneN.isEmpty()) ){
-            Toast.makeText(this,
-                    "You did not enter your city", Toast.LENGTH_LONG).show();
-            return 0;
+        if(!phoneN.isEmpty() && (!firstN.isEmpty() && !lasN.isEmpty() && !city.isEmpty()) ){
+           if(phoneN.length()==10){
+               Toast.makeText(this,
+                       "The phone number is't valid", Toast.LENGTH_LONG).show();
+               return 0;
+           }
+
         }
         return 1;
     }
